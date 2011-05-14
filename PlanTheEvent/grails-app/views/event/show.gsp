@@ -17,12 +17,13 @@
                 <table>
                     <tbody>                    
                         <tr class="prop">
-                            <td valign="top" class="name" id="EVENT_LAVEL"><g:message code="event.detail.label" default="詳細" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: eventInstance, field: "detail")}</td>
-                            
+                            <td valign="top" class="name">詳細</td>
+                            <td valign="top" class="value" id="detail">${event.detail}</td>
                         </tr>
-                    
+                        <tr class="prop">
+                            <td valign="top" class="name">参加者数</td>
+                            <td valign="top" class="value"　id="participantsCount">${event.participantsCount}</td>
+                        </tr>                    
                     </tbody>
                 </table>
             </div>
@@ -30,7 +31,7 @@
                 <g:form>
                     <g:hiddenField name="id" value="${eventInstance?.id}" />
                     <span class="button"><g:actionSubmit id="apply" action="apply" value="申し込み" /></span>
-                    <span class="button"><g:actionSubmit action="/userList" value="ユーザー一覧" /></span>
+                    <span class="button"><g:actionSubmit id="participantsList" action="participantsList" value="参加者一覧" /></span>
                 </g:form>
             </div>
         </div>

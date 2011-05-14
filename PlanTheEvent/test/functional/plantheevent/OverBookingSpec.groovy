@@ -8,8 +8,10 @@ class OverBookingSpec extends GebSpec {
 		when:
 			go "/PlanTheEvent/event/show"
 		then:
-			$("h1").text() == "イベント情報" &&
-			$("td#EVENT_LAVEL").text() == "詳細"
+			$("h1").text() == "イベント情報"
+			$("td#detail").text() == "レッツゴーデベロッパー"
+			$("td#participantsCount").text() == 0
+
 	}
 	
 	def "申し込みボタン押下"() {
@@ -18,6 +20,16 @@ class OverBookingSpec extends GebSpec {
     		$("input#apply").click()
 		then:
 			$("h1").text() == "申し込み"
+	}
+	
+	def "登録ボタン押下"() {
+		when:
+			go "/PlanTheEvent/participant/apply"
+			$("form").twitterId = "@digitalsoul"
+			$("form").message = "よろしくお願いします"
+			$("input#register").click()
+		then:
+			$("h1").text() == "イベント情報"
 	}
 	
 	String getBaseUrl() {

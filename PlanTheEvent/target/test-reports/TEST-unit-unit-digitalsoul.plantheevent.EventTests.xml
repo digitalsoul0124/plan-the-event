@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="digitalsoul.local" name="digitalsoul.plantheevent.EventTests" tests="1" time="0.011" timestamp="2011-05-14T12:41:14">
-  <properties />
-  <testcase classname="digitalsoul.plantheevent.EventTests" name="testSomething" time="0.0030" />
-  <system-out><![CDATA[--Output from testSomething--
-]]></system-out>
-  <system-err><![CDATA[--Output from testSomething--
-]]></system-err>
-</testsuite>

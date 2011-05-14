@@ -46,7 +46,7 @@
                     </table>
                 </div>
                 <div class="buttons">
-                    <span class="button"><g:actionSubmit action="register" value="登録" /></span>
+                    <span class="button"><g:actionSubmit id="register" action="register" value="登録" /></span>
                 </div>
             </g:form>
         </div>
