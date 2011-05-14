@@ -4,17 +4,16 @@ import geb.spock.GebSpec
 
 class OverBookingSpec extends GebSpec {
 
-	def "イベント詳細画面表示"() {
+	def "イベント画面初期表示"() {
 		when:
 			go "/PlanTheEvent/event/show"
 		then:
 			$("h1").text() == "イベント情報"
 			$("td#detail").text() == "レッツゴーデベロッパー"
-			$("td#participantsCount").text() == 0
-
+			$("td#participantsCount").text() == "0"
 	}
 	
-	def "申し込みボタン押下"() {
+	def "申し込み画面へ移動"() {
 		when:
 			go "/PlanTheEvent/event/show"
     		$("input#apply").click()
@@ -22,7 +21,7 @@ class OverBookingSpec extends GebSpec {
 			$("h1").text() == "申し込み"
 	}
 	
-	def "登録ボタン押下"() {
+	def "参加者一件登録"() {
 		when:
 			go "/PlanTheEvent/participant/apply"
 			$("form").twitterId = "@digitalsoul"
@@ -30,6 +29,8 @@ class OverBookingSpec extends GebSpec {
 			$("input#register").click()
 		then:
 			$("h1").text() == "イベント情報"
+			$("td#detail").text() == "レッツゴーデベロッパー"
+			$("td#participantsCount").text() == "1"
 	}
 	
 	String getBaseUrl() {

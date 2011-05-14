@@ -22,7 +22,7 @@
                         </tr>
                         <tr class="prop">
                             <td valign="top" class="name">参加者数</td>
-                            <td valign="top" class="value"　id="participantsCount">${event.participantsCount}</td>
+                            <td valign="top" class="value" id="participantsCount">${event.participantsCount()}</td>
                         </tr>                    
                     </tbody>
                 </table>

@@ -1,9 +1,14 @@
 package digitalsoul.plantheevent
 
-class EventController {
+import org.springframework.context.*
+
+class EventController implements ApplicationContextAware {
+	ApplicationContext applicationContext
 
     def show = { 
-    	render(view: "show", model:[event: new Event(detail:"レッツゴーデベロッパー", participantsCount:0)]);
+    	def eventRepository = applicationContext.getBean("eventRepository")
+    	def event = eventRepository.find()    	
+    	render(view: "show", model:[event: event]);
     }
     
     def apply = { 
