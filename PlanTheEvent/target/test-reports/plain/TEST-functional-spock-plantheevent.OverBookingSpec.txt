@@ -1,0 +1,13 @@
+Testsuite: plantheevent.OverBookingSpec
+Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 12.399 sec
+------------- Standard Output ---------------
+--Output from イベント詳細画面表示--
+--Output from 申し込みボタン押下--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from イベント詳細画面表示--
+--Output from 申し込みボタン押下--
+------------- ---------------- ---------------
+
+Testcase: イベント詳細画面表示 took 11.401 sec
+Testcase: 申し込みボタン押下 took 0.987 sec

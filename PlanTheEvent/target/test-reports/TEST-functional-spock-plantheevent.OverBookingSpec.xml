@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="digitalsoul.local" name="plantheevent.OverBookingSpec" tests="2" time="12.399" timestamp="2011-05-14T12:41:28">
+  <properties />
+  <testcase classname="plantheevent.OverBookingSpec" name="イベント詳細画面表示" time="11.401" />
+  <testcase classname="plantheevent.OverBookingSpec" name="申し込みボタン押下" time="0.987" />
+  <system-out><![CDATA[--Output from イベント詳細画面表示--
+--Output from 申し込みボタン押下--
+]]></system-out>
+  <system-err><![CDATA[--Output from イベント詳細画面表示--
+--Output from 申し込みボタン押下--
+]]></system-err>
+</testsuite>
