@@ -21,17 +21,25 @@
                             <td valign="top" class="value" id="detail">${event.detail}</td>
                         </tr>
                         <tr class="prop">
+                            <td valign="top" class="name">会場キャパシティ</td>
+                            <td valign="top" class="value" id="roomsCapacity">${event.roomsCapacity()}</td>
+                        </tr>                    
+                        <tr class="prop">
                             <td valign="top" class="name">参加者数</td>
                             <td valign="top" class="value" id="participantsCount">${event.participantsCount()}</td>
-                        </tr>                    
+                        </tr>
                     </tbody>
                 </table>
             </div>
+            <g:if test="${event.overCapacity()}">
+              <div class="message" id="overCapacityMessage">定員オーバーです</div>
+            </g:if>
             <div class="buttons">
                 <g:form>
-                    <g:hiddenField name="id" value="${eventInstance?.id}" />
+                  <g:if test="${!event.overCapacity()}">
                     <span class="button"><g:actionSubmit id="apply" action="apply" value="申し込み" /></span>
-                    <span class="button"><g:actionSubmit id="participantsList" action="participantsList" value="参加者一覧" /></span>
+                  </g:if>
+                  <span class="button"><g:actionSubmit id="participantsList" action="participantsList" value="参加者一覧" /></span>
                 </g:form>
             </div>
         </div>

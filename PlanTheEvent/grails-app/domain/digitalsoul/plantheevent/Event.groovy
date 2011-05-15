@@ -8,6 +8,19 @@ class Event {
 	// 参加者
 	List<Participant> participants
 	
+	// 会場
+	Room room
+
+        // イベントキャパシティ
+        boolean overCapacity() {
+            participantsCount() > (roomsCapacity() * 1.1)
+        }
+
+	// 会場キャパシティ取得
+	int roomsCapacity() {
+		room.capacity
+	}
+	
 	// 参加者追加
 	void addParticipant(Participant participant) {
 		participants.add(participant)
@@ -17,4 +30,6 @@ class Event {
 	int participantsCount() {
 		participants.size()
 	}
+	
+
 }

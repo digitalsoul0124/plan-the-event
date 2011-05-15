@@ -2,11 +2,11 @@ package digitalsoul.plantheevent.repositories
 
 import digitalsoul.plantheevent.Event
 import digitalsoul.plantheevent.Participant
+import digitalsoul.plantheevent.Room
 
 class MemoryEventRepository {
 
-	private Event event = new Event(detail:"レッツゴーデベロッパー", 
-		participants:new ArrayList<Participant>())
+	private Event event = defaultEvent()
 
 	Event find() {
 		return event
@@ -14,6 +14,13 @@ class MemoryEventRepository {
 	
 	void save(Event event) {
 		this.event = event
+	}
+
+	Event defaultEvent() {
+	    new Event(
+                    detail:"レッツゴーデベロッパー",
+	            participants:new ArrayList<Participant>(),
+	            room:new Room(capacity:10))
 	}
 
 }

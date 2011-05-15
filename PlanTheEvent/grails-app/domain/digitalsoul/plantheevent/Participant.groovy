@@ -2,9 +2,9 @@ package digitalsoul.plantheevent
 
 class Participant {
 
-	// ƒcƒCƒbƒ^[ID
+	// ãƒ„ã‚¤ãƒƒã‚¿ãƒ¼ID
 	String twitterId
 	
-	// ƒƒbƒZ[ƒW
+	// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 	String message
 }
