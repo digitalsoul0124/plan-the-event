@@ -31,6 +31,11 @@ class ParticipantController implements ApplicationContextAware {
         render(view: "list", model:[participantInstanceList: participants]);
     }
 
+    // イベント詳細画面に戻る
+    def back = {
+        redirect(controller: "event", action: "show")
+    }
+
     ApplicationContext applicationContext
     private EventRepository eventRepository() {
         applicationContext.getBean("eventRepository")

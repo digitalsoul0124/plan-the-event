@@ -54,6 +54,7 @@ class OverBookingSpec extends GebSpec {
                 go "/PlanTheEvent/event/show"
                 $("input#participantsList").click()
             then:
+                $("h1").text() == "参加者一覧"
                 $("td.twitterId", 0).text() == "@digitalsoul0124"
                 $("td.twitterId", 1).text() == "@2"
                 $("td.twitterId", 2).text() == "@3"
@@ -66,6 +67,16 @@ class OverBookingSpec extends GebSpec {
                 $("td.twitterId", 9).text() == "@10"
                 $("td.twitterId", 10).text() == "@11"
                 $("td.twitterId", 11).isEmpty()
+
+        }
+
+        def "参加者一覧確認終了"() {
+            when:
+                go "/PlanTheEvent/event/show"
+                $("input#participantsList").click()
+                $("input#back").click()
+            then:
+                $("h1").text() == "イベント情報"
 
         }
 	

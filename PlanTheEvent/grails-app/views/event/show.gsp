@@ -13,6 +13,9 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
+            <g:if test="${event.fullToCapacity()}">
+              <div class="message" id="fullToCapacityMessage">満席になりました</div>
+            </g:if>
             <div class="dialog">
                 <table>
                     <tbody>                    
@@ -31,9 +34,6 @@
                     </tbody>
                 </table>
             </div>
-            <g:if test="${event.fullToCapacity()}">
-              <div class="message" id="fullToCapacityMessage">満席になりました</div>
-            </g:if>
             <div class="buttons">
                 <g:form>
                   <g:if test="${!event.fullToCapacity()}">

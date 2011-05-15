@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="body">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <h1>参加者一覧</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -37,6 +37,11 @@
                     </tbody>
                 </table>
             </div>
+            <g:form method="post" >
+                <div class="buttons">
+                    <span class="button"><g:actionSubmit id="back" action="back" value="イベント情報に戻る" /></span>
+                </div>
+            </g:form>
         </div>
     </body>
 </html>
