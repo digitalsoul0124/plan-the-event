@@ -8,10 +8,6 @@
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-        </div>
         <div class="body">
             <h1><g:message code="default.list.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
@@ -21,32 +17,25 @@
                 <table>
                     <thead>
                         <tr>
-                        
-                            <g:sortableColumn property="id" title="${message(code: 'participant.id.label', default: 'Id')}" />
-                        
-                            <g:sortableColumn property="message" title="${message(code: 'participant.message.label', default: 'Message')}" />
-                        
-                            <g:sortableColumn property="twitterId" title="${message(code: 'participant.twitterId.label', default: 'Twitter Id')}" />
+
+                            <g:sortableColumn property="twitterId" title="Twitter Id" />
+
+                            <g:sortableColumn property="message" title="メッセージ" />
                         
                         </tr>
                     </thead>
                     <tbody>
-                    <g:each in="${participantInstanceList}" status="i" var="participantInstance">
+                    <g:each in="${participantInstanceList}" status="i" var="participant">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
-                            <td><g:link action="show" id="${participantInstance.id}">${fieldValue(bean: participantInstance, field: "id")}</g:link></td>
-                        
-                            <td>${fieldValue(bean: participantInstance, field: "message")}</td>
-                        
-                            <td>${fieldValue(bean: participantInstance, field: "twitterId")}</td>
+
+                            <td class="twitterId" style="width:100">${participant?.twitterId}</td>
+
+                            <td class="participantsMessage" style="width:300">${participant?.message}</td>
                         
                         </tr>
                     </g:each>
                     </tbody>
                 </table>
-            </div>
-            <div class="paginateButtons">
-                <g:paginate total="${participantInstanceTotal}" />
             </div>
         </div>
     </body>

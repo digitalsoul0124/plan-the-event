@@ -11,9 +11,9 @@ class Event {
 	// 会場
 	Room room
 
-        // イベントキャパシティ
-        boolean overCapacity() {
-            participantsCount() > (roomsCapacity() * 1.1)
+        // 満席判定
+        boolean fullToCapacity() {
+            participantsCount() == (roomsCapacity() * 1.1)
         }
 
 	// 会場キャパシティ取得

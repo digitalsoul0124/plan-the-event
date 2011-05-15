@@ -4,7 +4,7 @@ import digitalsoul.plantheevent.Event
 import digitalsoul.plantheevent.Participant
 import digitalsoul.plantheevent.Room
 
-class MemoryEventRepository {
+class MemoryEventRepository implements EventRepository {
 
 	private Event event = defaultEvent()
 

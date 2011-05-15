@@ -29,7 +29,7 @@
                                   <label for="twitterId"><g:message code="participant.twitterId.label" default="Twitter Id" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: participantInstance, field: 'twitterId', 'errors')}">
-                                    <g:textField name="twitterId" value="${participantInstance?.twitterId}" />
+                                    <g:textField name="twitterId" value="${params.twitterId}" />
                                 </td>
                             </tr>
 
@@ -38,7 +38,7 @@
                                   <label for="message"><g:message code="participant.message.label" default="Message" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: participantInstance, field: 'message', 'errors')}">
-                                    <g:textField name="message" value="${participantInstance?.message}" />
+                                    <g:textField name="message" value="${params.message}" />
                                 </td>
                             </tr>
 

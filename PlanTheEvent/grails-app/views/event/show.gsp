@@ -31,12 +31,12 @@
                     </tbody>
                 </table>
             </div>
-            <g:if test="${event.overCapacity()}">
-              <div class="message" id="overCapacityMessage">定員オーバーです</div>
+            <g:if test="${event.fullToCapacity()}">
+              <div class="message" id="fullToCapacityMessage">満席になりました</div>
             </g:if>
             <div class="buttons">
                 <g:form>
-                  <g:if test="${!event.overCapacity()}">
+                  <g:if test="${!event.fullToCapacity()}">
                     <span class="button"><g:actionSubmit id="apply" action="apply" value="申し込み" /></span>
                   </g:if>
                   <span class="button"><g:actionSubmit id="participantsList" action="participantsList" value="参加者一覧" /></span>

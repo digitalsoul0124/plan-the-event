@@ -25,7 +25,7 @@ class OverBookingSpec extends GebSpec {
 	def "参加者一件登録"() {
 		when:
 			go "/PlanTheEvent/participant/apply"
-			$("form").twitterId = "@digitalsoul"
+			$("form").twitterId = "@digitalsoul0124"
 			$("form").message = "よろしくお願いします"
 			$("input#register").click()
 		then:
@@ -37,15 +37,35 @@ class OverBookingSpec extends GebSpec {
         def "参加者上限設定"() {
             when:
                 go "/PlanTheEvent/participant/apply"
-                for(i in 2..12){
+                for(i in 2..11){
                     $("form").twitterId = "@" + i
                     $("input#register").click()
-                    if(i != 12){
+                    if(i != 11){
                         $("input#apply").click()
                     }
                 }
             then:
-                $("div#overCapacityMessage").text() == "定員オーバーです"
+                $("div#fullToCapacityMessage").text() == "満席になりました"
+
+        }
+
+        def "参加者一覧確認"() {
+            when:
+                go "/PlanTheEvent/event/show"
+                $("input#participantsList").click()
+            then:
+                $("td.twitterId", 0).text() == "@digitalsoul0124"
+                $("td.twitterId", 1).text() == "@2"
+                $("td.twitterId", 2).text() == "@3"
+                $("td.twitterId", 3).text() == "@4"
+                $("td.twitterId", 4).text() == "@5"
+                $("td.twitterId", 5).text() == "@6"
+                $("td.twitterId", 6).text() == "@7"
+                $("td.twitterId", 7).text() == "@8"
+                $("td.twitterId", 8).text() == "@9"
+                $("td.twitterId", 9).text() == "@10"
+                $("td.twitterId", 10).text() == "@11"
+                $("td.twitterId", 11).isEmpty()
 
         }
 	
