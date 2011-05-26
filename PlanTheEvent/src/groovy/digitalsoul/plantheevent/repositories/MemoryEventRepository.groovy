@@ -19,7 +19,6 @@ class MemoryEventRepository implements EventRepository {
 	Event defaultEvent() {
 	    new Event(
                     detail:"レッツゴーデベロッパー",
-	            participants:new ArrayList<Participant>(),
 	            room:new Room(capacity:10))
 	}
 

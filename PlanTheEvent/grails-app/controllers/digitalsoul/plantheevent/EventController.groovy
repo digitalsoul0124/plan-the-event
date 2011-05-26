@@ -8,7 +8,9 @@ class EventController implements ApplicationContextAware {
     // 初期表示
     def show = { 
     	def event = eventRepository().find()
-    	render(view: "show", model:[event: event])
+        def overbookingPolicy = new OverbookingPolicy()
+        def fullToCapacity = overbookingPolicy.fullToCapacity(event)
+    	render(view: "show", model:[event: event, fullToCapacity: fullToCapacity])
     }
 
     // 申し込みボタン押下

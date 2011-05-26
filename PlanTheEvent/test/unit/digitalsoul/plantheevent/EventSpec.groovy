@@ -5,25 +5,34 @@ import digitalsoul.plantheevent.repositories.*
 
 class EventSpec extends UnitSpec {
 
-    def "キャパシティ内限界値／オーバーブッキング含めて10人まではOK"() {
+
+    def "満席"() {
         when:
-            def event = new MemoryEventRepository().find()
-            for(i in 1..10){
+            def overbookingPolicy = new OverbookingPolicy()
+            def room = new Room(capacity:10)
+            def LIMIT = overbookingPolicy.limitFor(room)
+            def event = new Event(room:room)
+            for(i in 1..LIMIT){
                 event.addParticipant(new Participant())
             }
         then:
-            !event.fullToCapacity()
-
+            overbookingPolicy.fullToCapacity(event)
     }
 
-    def "満席／11人で満席"() {
+
+    def "部屋上限ならまだセーフ"() {
         when:
-            def event = new MemoryEventRepository().find()
-            for(i in 1..11){
+            def overbookingPolicy = new OverbookingPolicy()
+            def room = new Room(capacity:10)
+            def LIMIT = overbookingPolicy.limitFor(room)
+            def event = new Event(room:room)
+            for(i in 1..room.capacity){
                 event.addParticipant(new Participant())
             }
         then:
-            event.fullToCapacity()
+            !overbookingPolicy.fullToCapacity(event)
+
     }
+
 
 }

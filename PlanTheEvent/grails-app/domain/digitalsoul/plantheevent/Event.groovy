@@ -6,15 +6,10 @@ class Event {
 	String detail
 	
 	// 参加者
-	List<Participant> participants
+	List<Participant> participants = new ArrayList<Participant>()
 	
 	// 会場
 	Room room
-
-        // 満席判定
-        boolean fullToCapacity() {
-            participantsCount() == (roomsCapacity() * 1.1)
-        }
 
 	// 会場キャパシティ取得
 	int roomsCapacity() {

@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class="body">
-            <h1>申し込み</h1>
+            <h1 id="pageTitle">申し込み</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -19,7 +19,7 @@
                 <g:renderErrors bean="${participantInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post" >
+            <g:form method="post" id="applyForm" >
                 <div class="dialog">
                     <table>
                         <tbody>                        

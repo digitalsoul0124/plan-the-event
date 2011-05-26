@@ -9,11 +9,11 @@
     </head>
     <body>
         <div class="body">
-            <h1>イベント情報</h1>
+            <h1 id="pageTitle">イベント情報</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-            <g:if test="${event.fullToCapacity()}">
+            <g:if test="${fullToCapacity}">
               <div class="message" id="fullToCapacityMessage">満席になりました</div>
             </g:if>
             <div class="dialog">
@@ -36,7 +36,7 @@
             </div>
             <div class="buttons">
                 <g:form>
-                  <g:if test="${!event.fullToCapacity()}">
+                  <g:if test="${!fullToCapacity}">
                     <span class="button"><g:actionSubmit id="apply" action="apply" value="申し込み" /></span>
                   </g:if>
                   <span class="button"><g:actionSubmit id="participantsList" action="participantsList" value="参加者一覧" /></span>
