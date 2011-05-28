@@ -26,7 +26,7 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
         
-        // テストにfirefoxを使う
+        // 繝�繧ｹ繝医↓firefox繧剃ｽｿ縺�
         test("org.seleniumhq.selenium:selenium-firefox-driver:latest.release")
 
 

@@ -4,35 +4,35 @@ import geb.spock.GebSpec
 
 class OverBookingSpec extends GebSpec {
 
-	def "イベント画面初期表示"() {
-		when:
-			go "/PlanTheEvent/event/show"
-		then:
-			$("#pageTitle").text() == "イベント情報"
-			$("#detail").text() == "レッツゴーデベロッパー"
-			$("#participantsCount").text() == "0"
-			$("#roomsCapacity").text() == "10"
-	}
-	
-	def "申し込み画面へ移動"() {
-		when:
+    def "イベント画面初期表示"() {
+        when:
+            go "/PlanTheEvent/event/show"
+        then:
+            $("#pageTitle").text() == "イベント情報"
+            $("#detail").text() == "レッツゴーデベロッパー"
+            $("#participantsCount").text() == "0"
+            $("#roomsCapacity").text() == "10"
+    }
+
+    def "申し込み画面へ移動"() {
+        when:
                     go "/PlanTheEvent/event/show"
                     $("#apply").click()
-		then:
+        then:
                     $("#pageTitle").text() == "申し込み"
-	}
-	
-	def "参加者一件登録"() {
-		when:
-			go "/PlanTheEvent/participant/apply"
-			$("form").twitterId = "@digitalsoul0124"
-			$("form").message = "よろしくお願いします"
-			$("#register").click()
-		then:
-			$("#pageTitle").text() == "イベント情報"
-			$("#detail").text() == "レッツゴーデベロッパー"
-			$("#participantsCount").text() == "1"
-	}
+    }
+
+    def "参加者一件登録"() {
+        when:
+            go "/PlanTheEvent/participant/apply"
+            $("form").twitterId = "@digitalsoul0124"
+            $("form").message = "よろしくお願いします"
+            $("#register").click()
+        then:
+            $("#pageTitle").text() == "イベント情報"
+            $("#detail").text() == "レッツゴーデベロッパー"
+            $("#participantsCount").text() == "1"
+    }
 
         def "参加者上限設定"() {
             when:
@@ -80,9 +80,9 @@ class OverBookingSpec extends GebSpec {
                 $("h1").text() == "イベント情報"
 
         }
-	
-	String getBaseUrl() {
-		"http://localhost:8080/PlanTheEvent"
-	}
+
+    String getBaseUrl() {
+        "http://localhost:8080/PlanTheEvent"
+    }
 
 }
