@@ -4,10 +4,13 @@ import org.springframework.context.*
 import digitalsoul.plantheevent.repositories.*
 
 class ParticipantController implements ApplicationContextAware {
-   
+
+    def index = {
+        redirect(action: "apply")
+    }
 
     // 申し込み画面初期表示
-    def apply = { 
+    def apply = {
         
     }
 
@@ -17,11 +20,11 @@ class ParticipantController implements ApplicationContextAware {
         def participant = new Participant(twitterId:params.twitterId, message:params.message)
 
         def eventRepository = eventRepository()
-    	def event = eventRepository.find()
-    	event.addParticipant(participant)
-    	eventRepository.save(event)
+        def event = eventRepository.find()
+        event.addParticipant(participant)
+        eventRepository.save(event)
 
-    	redirect(controller: "event", action: "show")
+        redirect(controller: "event", action: "show")
     }
     
     // 参加者一覧画面初期表示
