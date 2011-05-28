@@ -34,52 +34,52 @@ class OverBookingSpec extends GebSpec {
             $("#participantsCount").text() == "1"
     }
 
-        def "参加者上限設定"() {
-            when:
-                go "/PlanTheEvent/participant/apply"
-                for(i in 2..11){
-                    $("form").twitterId = "@" + i
-                    $("#register").click()
-                    if(i != 11){
-                        $("#apply").click()
-                    }
+    def "参加者上限設定"() {
+        when:
+            go "/PlanTheEvent/participant/apply"
+            for(i in 2..11){
+                $("form").twitterId = "@" + i
+                $("#register").click()
+                if(i != 11){
+                    $("#apply").click()
                 }
-            then:
-                $("#fullToCapacityMessage").text() == "満席になりました"
-                $("#register").
+            }
+        then:
+            $("#fullToCapacityMessage").text() == "満席になりました"
+    //        $("#register"). // FIXME
 
-        }
+    }
 
-        def "参加者一覧確認"() {
-            when:
-                go "/PlanTheEvent/event/show"
-                $("input#participantsList").click()
-            then:
-                $("h1").text() == "参加者一覧"
-                $("td.twitterId", 0).text() == "@digitalsoul0124"
-                $("td.twitterId", 1).text() == "@2"
-                $("td.twitterId", 2).text() == "@3"
-                $("td.twitterId", 3).text() == "@4"
-                $("td.twitterId", 4).text() == "@5"
-                $("td.twitterId", 5).text() == "@6"
-                $("td.twitterId", 6).text() == "@7"
-                $("td.twitterId", 7).text() == "@8"
-                $("td.twitterId", 8).text() == "@9"
-                $("td.twitterId", 9).text() == "@10"
-                $("td.twitterId", 10).text() == "@11"
-                $("td.twitterId", 11).isEmpty()
+    def "参加者一覧確認"() {
+        when:
+            go "/PlanTheEvent/event/show"
+            $("input#participantsList").click()
+        then:
+            $("h1").text() == "参加者一覧"
+            $("td.twitterId", 0).text() == "@digitalsoul0124"
+            $("td.twitterId", 1).text() == "@2"
+            $("td.twitterId", 2).text() == "@3"
+            $("td.twitterId", 3).text() == "@4"
+            $("td.twitterId", 4).text() == "@5"
+            $("td.twitterId", 5).text() == "@6"
+            $("td.twitterId", 6).text() == "@7"
+            $("td.twitterId", 7).text() == "@8"
+            $("td.twitterId", 8).text() == "@9"
+            $("td.twitterId", 9).text() == "@10"
+            $("td.twitterId", 10).text() == "@11"
+            $("td.twitterId", 11).isEmpty()
 
-        }
+    }
 
-        def "参加者一覧確認終了"() {
-            when:
-                go "/PlanTheEvent/event/show"
-                $("input#participantsList").click()
-                $("input#back").click()
-            then:
-                $("h1").text() == "イベント情報"
+    def "参加者一覧確認終了"() {
+        when:
+            go "/PlanTheEvent/event/show"
+            $("input#participantsList").click()
+            $("input#back").click()
+        then:
+            $("h1").text() == "イベント情報"
 
-        }
+    }
 
     String getBaseUrl() {
         "http://localhost:8080/PlanTheEvent"
