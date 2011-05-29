@@ -1,12 +1,12 @@
 package plantheevent
 
-import geb.spock.GebSpec
+import grails.plugin.geb.GebSpec
 
 class OverBookingSpec extends GebSpec {
 
     def "イベント画面初期表示"() {
         when:
-            go "/PlanTheEvent/event/show"
+            go "event/show"
         then:
             $("#pageTitle").text() == "イベント情報"
             $("#detail").text() == "レッツゴーデベロッパー"
@@ -16,7 +16,7 @@ class OverBookingSpec extends GebSpec {
 
     def "申し込み画面へ移動"() {
         when:
-                    go "/PlanTheEvent/event/show"
+                    go "event/show"
                     $("#apply").click()
         then:
                     $("#pageTitle").text() == "申し込み"
@@ -24,7 +24,7 @@ class OverBookingSpec extends GebSpec {
 
     def "参加者一件登録"() {
         when:
-            go "/PlanTheEvent/participant/apply"
+            go "participant/apply"
             $("form").twitterId = "@digitalsoul0124"
             $("form").message = "よろしくお願いします"
             $("#register").click()
@@ -36,7 +36,7 @@ class OverBookingSpec extends GebSpec {
 
     def "参加者上限設定"() {
         when:
-            go "/PlanTheEvent/participant/apply"
+            go "participant/apply"
             for(i in 2..11){
                 $("form").twitterId = "@" + i
                 $("#register").click()
@@ -52,7 +52,7 @@ class OverBookingSpec extends GebSpec {
 
     def "参加者一覧確認"() {
         when:
-            go "/PlanTheEvent/event/show"
+            go "event/show"
             $("input#participantsList").click()
         then:
             $("h1").text() == "参加者一覧"
@@ -73,16 +73,11 @@ class OverBookingSpec extends GebSpec {
 
     def "参加者一覧確認終了"() {
         when:
-            go "/PlanTheEvent/event/show"
+            go "event/show"
             $("input#participantsList").click()
             $("input#back").click()
         then:
             $("h1").text() == "イベント情報"
 
     }
-
-    String getBaseUrl() {
-        "http://localhost:8080/PlanTheEvent"
-    }
-
 }
